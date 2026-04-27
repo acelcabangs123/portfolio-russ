@@ -7,24 +7,24 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Portfolio - Dashboard Developer',
+  title: 'Portfolio - Web Developer',
   description: 'Transform data into clarity. Custom dashboards and reporting systems for modern businesses.',
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
+        url: '/apple-icon2.png',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/icon-dark-32x32.png',
+        url: '/apple-icon2.png',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/icon.svg',
+        url: '/apple-icon2.png',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/apple-icon2.png',
   },
 }
 
