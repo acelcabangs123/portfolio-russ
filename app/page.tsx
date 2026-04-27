@@ -270,7 +270,7 @@ export default function Home() {
                 {/* Project image or placeholder */}
                 <button
                   onClick={() => project.image && setSelectedImage({ title: project.title, image: project.image })}
-                  className={`bg-gradient-to-br ${project.color} h-40 flex items-center justify-center text-5xl relative overflow-hidden w-full cursor-pointer hover:opacity-80 transition`}
+                  className={`bg-linear-to-br ${project.color} h-40 flex items-center justify-center text-5xl relative overflow-hidden w-full cursor-pointer hover:opacity-80 transition`}
                 >
                   {project.image ? (
                     <Image
@@ -315,7 +315,7 @@ export default function Home() {
               ))}
               {/* Duplicate set for seamless loop */}
               {skills.map((skill, i) => (
-                <div key={`duplicate-${i}`} className="flex flex-col items-center gap-2 p-4 flex-shrink-0">
+                <div key={`duplicate-${i}`} className="flex flex-col items-center gap-2 p-4 shrink-0">
                   <div className="text-4xl mb-2">{skill.icon}</div>
                   <p className="text-sm text-slate-400 whitespace-nowrap">{skill.name}</p>
                 </div>
@@ -687,13 +687,13 @@ export default function Home() {
             {/* Modal Content */}
             <div className="p-6 space-y-4">
               {/* Email */}
-              <a href="mailto:russell.cabang@gmail.com" className="flex items-center gap-4 p-4 bg-slate-800/50 rounded-lg hover:bg-slate-800 transition group">
+              <a href="mailto:russellcabang3@gmail.com" className="flex items-center gap-4 p-4 bg-slate-800/50 rounded-lg hover:bg-slate-800 transition group">
                 <div className="flex-shrink-0">
                   <Mail className="w-6 h-6 text-purple-400" />
                 </div>
                 <div className="flex-1">
                   <p className="text-sm text-slate-400">Email</p>
-                  <p className="text-white font-medium group-hover:text-purple-400 transition">russell.cabang@gmail.com</p>
+                  <p className="text-white font-medium group-hover:text-purple-400 transition">russellcabang3@gmail.com</p>
                 </div>
               </a>
 
