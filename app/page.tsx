@@ -57,7 +57,7 @@ export default function Home() {
       }
     } catch (error) {
       console.error('Error:', error)
-      setSubmitMessage('Unable to send your inquiry at the moment. You may contact me directly via Upwork, Facebook, Email, or Mobile. I’ll be happy to assist you.')
+      setSubmitMessage('Unable to send your inquiry at the moment. You may contact me directly via Upwork, Facebook, Email, or Mobile. I\'ll be happy to assist you.')
     } finally {
       setIsSubmitting(false)
     }
@@ -115,6 +115,35 @@ export default function Home() {
       color: 'from-blue-600 to-blue-900',
       url: 'https://executivedashboard-seven.vercel.app/',
     },
+    // Duplicated projects - ready for 4 new samples
+// {
+//   title: 'Marketing Agency Website',
+//   description: 'Modern agency website built to showcase services, case studies, and generate new client inquiries.',
+//   image: 'projects/studio.png',
+//   color: 'from-purple-600 to-purple-900',
+//   url: 'https://agency-psi-seven.vercel.app/',
+// },
+// {
+//   title: 'HRIS Portal',
+//   description: 'Employee management portal with leave requests, payslips, attendance, and HR admin tools.',
+//   image: 'projects/hris.png',
+//   color: 'from-orange-600 to-orange-900',
+//   url: 'https://hris-azure.vercel.app/login',
+// },
+// {
+//   title: 'Luxury Real Estate Website',
+//   description: 'Premium real estate website featuring property listings, lead capture, and modern branding.',
+//   image: 'projects/realestate.png',
+//   color: 'from-emerald-600 to-emerald-900',
+//   url: 'https://realestate-coral-five.vercel.app/',
+// },
+// {
+//   title: 'Dental Clinic Website',
+//   description: 'Professional clinic website with appointment booking, services overview, and patient-focused design.',
+//   image: 'projects/dental.png',
+//   color: 'from-blue-600 to-blue-900',
+//   url: 'https://dental-eight-mocha.vercel.app/',
+// },
   ]
 
   const skills = [
@@ -174,7 +203,7 @@ export default function Home() {
 </div>
               <div>
                 <p className="font-semibold text-sm">Russell Cabang</p>
-                <p className="text-xs text-slate-400">Frontend Web Developer | Dashboards, CRM & Automation</p>
+                <p className="text-xs text-slate-400">Front End Web Developer | Dashboards, CRM & Automation</p>
               </div>
             </div>
 
@@ -195,6 +224,9 @@ export default function Home() {
               <button onClick={() => setShowContactInfo(true)} className="text-slate-400 hover:text-white transition">
                 Contact
               </button>
+              <a href="https://resume-russell.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition">
+                Resume
+              </a>
             </nav>
 
             {/* CTA & Mobile Menu */}
@@ -461,209 +493,109 @@ export default function Home() {
                 </div>
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-white">
-                Let’s Build Digital Systems That Help Your Business Grow
+                Let&apos;s Build Digital Systems That Help Your Business Grow
               </h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-                From websites and mobile apps to dashboards, automation, and custom tools — I create solutions that save time, improve operations, and support smarter decisions
+                Get in touch to discuss how I can build dashboards and automation tools for your business.
               </p>
-              
-              {/* Feature Pills */}
-              <div className="flex flex-wrap gap-3 justify-center mb-8">
-                <div className="px-4 py-2 rounded-full bg-slate-900/50 border border-slate-800/50 flex items-center gap-2">
-                  <span className="text-lg">📊</span>
-                  <span className="text-sm text-slate-300">Custom Dashboards</span>
-                </div>
-                <div className="px-4 py-2 rounded-full bg-slate-900/50 border border-slate-800/50 flex items-center gap-2">
-                  <span className="text-lg">⚡</span>
-                  <span className="text-sm text-slate-300">Better Reporting</span>
-                </div>
-                <div className="px-4 py-2 rounded-full bg-slate-900/50 border border-slate-800/50 flex items-center gap-2">
-                  <span className="text-lg">📈</span>
-                  <span className="text-sm text-slate-300">Business Growth</span>
-                </div>
-              </div>
-              
-              <a href="https://www.upwork.com/freelancers/~017edb9e1e27310487" target="_blank" rel="noopener noreferrer">
-                <Button className="bg-purple-600 hover:bg-purple-700 text-white gap-2 px-8 py-3 text-base rounded-full">
-                  Hire Me on Upwork
-                  <ChevronRight className="w-5 h-5" />
-                </Button>
-              </a>
+              <Button onClick={() => setShowContactModal(true)} className="bg-purple-600 hover:bg-purple-700 text-white gap-2 h-12 px-8">
+                Start Your Project
+                <ChevronRight className="w-5 h-5" />
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Fullscreen Image Modal */}
+      {/* Image Modal */}
       {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-          onClick={() => setSelectedImage(null)}
-        >
-          <div className="relative w-full h-full max-w-5xl max-h-[90vh] flex flex-col">
-            <button
-              onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 text-white hover:text-slate-300 transition z-10"
-              aria-label="Close"
-            >
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50" onClick={() => setSelectedImage(null)}>
+          <div className="relative max-w-2xl w-full">
+            <button onClick={() => setSelectedImage(null)} className="absolute -top-10 right-0 text-white hover:text-purple-400">
               <X className="w-8 h-8" />
             </button>
-            <div className="flex-1 relative rounded-lg overflow-hidden">
-              <Image
-                src={selectedImage.image}
-                alt={selectedImage.title}
-                fill
-                className="object-contain"
-              />
-            </div>
-            <p className="text-white text-center mt-4 text-lg font-semibold">{selectedImage.title}</p>
+            <Image
+              src={selectedImage.image}
+              alt={selectedImage.title}
+              width={800}
+              height={600}
+              className="w-full rounded-lg"
+            />
           </div>
         </div>
       )}
 
       {/* Contact Modal */}
       {showContactModal && (
-        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto scrollbar-hide">
-            {/* Modal Header */}
-            <div className="sticky top-0 flex justify-between items-center p-6 border-b border-slate-800 bg-slate-900">
-              <h2 className="text-2xl font-bold">Let&apos;s Work Together</h2>
-              <button
-                onClick={() => setShowContactModal(false)}
-                className="text-slate-400 hover:text-white transition"
-              >
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
+          <div className="bg-slate-900 rounded-xl p-8 max-w-md w-full border border-slate-800">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-bold">Get In Touch</h2>
+              <button onClick={() => setShowContactModal(false)} className="text-slate-400 hover:text-white">
                 <X className="w-6 h-6" />
               </button>
             </div>
 
-            {/* Modal Content */}
-            <form
-              onSubmit={handleSubmit}
-              className="p-6 space-y-4"
-            >
-              {/* Name */}
-              <div>
-                <label className="block text-sm font-medium mb-2">Name</label>
-                <input
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-slate-50 focus:outline-none focus:border-purple-500 transition"
-                  placeholder="Your name"
-                />
-              </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <input
+                type="text"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-purple-500"
+                required
+              />
+              <input
+                type="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-purple-500"
+                required
+              />
+              <input
+                type="text"
+                placeholder="Company Name"
+                value={formData.company}
+                onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-purple-500"
+              />
+              <select
+                value={formData.help}
+                onChange={(e) => setFormData({ ...formData, help: e.target.value })}
+                className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-purple-500"
+                required
+              >
+                <option value="">What do you need help with?</option>
+                <option value="Dashboard Development">Dashboard Development</option>
+                <option value="Website Development">Website Development</option>
+                <option value="CRM Integration">CRM Integration</option>
+                <option value="Automation Setup">Automation Setup</option>
+                <option value="Other">Other</option>
+              </select>
+              <input
+                type="text"
+                placeholder="Budget (optional)"
+                value={formData.budget}
+                onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-purple-500"
+              />
+              <textarea
+                placeholder="Tell me more about your project..."
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 h-24 resize-none"
+              />
 
-              {/* Email */}
-              <div>
-                <label className="block text-sm font-medium mb-2">Email</label>
-                <input
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-slate-50 focus:outline-none focus:border-purple-500 transition"
-                  placeholder="your@email.com"
-                />
-              </div>
-
-              {/* Company */}
-              <div>
-                <label className="block text-sm font-medium mb-2">Company</label>
-                <input
-                  type="text"
-                  required
-                  value={formData.company}
-                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                  className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-slate-50 focus:outline-none focus:border-purple-500 transition"
-                  placeholder="Your company"
-                />
-              </div>
-
-              {/* What do you need help with? */}
-              <div>
-                <label className="block text-sm font-medium mb-2">What do you need help with?</label>
-                <textarea
-                  required
-                  value={formData.help}
-                  onChange={(e) => setFormData({ ...formData, help: e.target.value })}
-                  className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-slate-50 focus:outline-none focus:border-purple-500 transition"
-                  placeholder="Tell me about your project..."
-                  rows={3}
-                />
-              </div>
-
-              {/* Budget */}
-              <div>
-                <label className="block text-sm font-medium mb-2">Budget <span className="text-slate-400">(optional)</span></label>
-                <input
-                  type="text"
-                  value={formData.budget}
-                  onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                  className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-slate-50 focus:outline-none focus:border-purple-500 transition"
-                  placeholder="e.g. $100 - $1,000"
-                />
-              </div>
-
-              {/* Timeline
-              <div>
-                <label className="block text-sm font-medium mb-2">Timeline</label>
-                <select
-                  required
-                  value={formData.timeline}
-                  onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                  className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-slate-50 focus:outline-none focus:border-purple-500 transition"
-                >
-                  <option value="">Select a timeline...</option>
-                  <option value="ASAP">ASAP</option>
-                  <option value="1-2 weeks">1-2 weeks</option>
-                  <option value="1 month">1 month</option>
-                  <option value="2-3 months">2-3 months</option>
-                  <option value="3+ months">3+ months</option>
-                </select>
-              </div> */}
-
-              {/* Message */}
-              <div>
-                <label className="block text-sm font-medium mb-2">Message</label>
-                <textarea
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-slate-50 focus:outline-none focus:border-purple-500 transition"
-                  placeholder="Any additional details..."
-                  rows={3}
-                />
-              </div>
-
-              {/* Success/Error Message */}
               {submitMessage && (
-                <div className={`p-4 rounded-lg text-sm font-medium ${
-                  submitMessage.includes('successfully') 
-                    ? 'bg-green-950/50 border border-green-700/50 text-green-300' 
-                    : 'bg-red-950/50 border border-red-700/50 text-red-300'
-                }`}>
+                <div className={`p-3 rounded-lg text-sm ${submitMessage.includes('successfully') ? 'bg-green-900/30 text-green-300' : 'bg-red-900/30 text-red-300'}`}>
                   {submitMessage}
                 </div>
               )}
 
-              {/* Buttons */}
-              <div className="flex gap-4 pt-6">
-                <Button 
-                  type="submit" 
-                  disabled={isSubmitting}
-                  className="flex-1 bg-purple-600 hover:bg-purple-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? 'Sending...' : 'Send Inquiry'}
-                </Button>
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="flex-1 border-slate-700 text-slate-300 hover:bg-slate-800"
-                  onClick={() => window.open('https://www.upwork.com/freelancers/~017edb9e1e27310487', '_blank')}
-                >
-                  Book a Call
-                </Button>
-              </div>
+              <Button type="submit" disabled={isSubmitting} className="w-full bg-purple-600 hover:bg-purple-700 text-white">
+                {isSubmitting ? 'Sending...' : 'Send Inquiry'}
+              </Button>
             </form>
           </div>
         </div>
