@@ -235,11 +235,80 @@ export default function Home() {
                 Let&apos;s Work Together
                 <ChevronRight className="w-4 h-4" />
               </Button>
-              <button className="md:hidden text-slate-400 hover:text-white">
+              <button 
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="md:hidden text-slate-400 hover:text-white transition"
+                aria-label="Toggle mobile menu"
+              >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
           </div>
+
+          {/* Mobile Navigation Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden border-t border-slate-800 bg-slate-950">
+              <nav className="flex flex-col gap-1 py-4">
+                <button 
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    setMobileMenuOpen(false);
+                  }}
+                  className="px-4 py-2 text-left text-slate-400 hover:text-white hover:bg-slate-900/50 transition"
+                >
+                  Home
+                </button>
+                <a 
+                  href="#projects"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-4 py-2 text-slate-400 hover:text-white hover:bg-slate-900/50 transition block"
+                >
+                  Projects
+                </a>
+                <a 
+                  href="#skills"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-4 py-2 text-slate-400 hover:text-white hover:bg-slate-900/50 transition block"
+                >
+                  Skills
+                </a>
+                <a 
+                  href="#about"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-4 py-2 text-slate-400 hover:text-white hover:bg-slate-900/50 transition block"
+                >
+                  About
+                </a>
+                <button 
+                  onClick={() => {
+                    setShowContactInfo(true);
+                    setMobileMenuOpen(false);
+                  }}
+                  className="px-4 py-2 text-left text-slate-400 hover:text-white hover:bg-slate-900/50 transition"
+                >
+                  Contact
+                </button>
+                <a 
+                  href="https://resume-russell.vercel.app/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-4 py-2 text-slate-400 hover:text-white hover:bg-slate-900/50 transition block"
+                >
+                  Resume
+                </a>
+                <button 
+                  onClick={() => {
+                    setShowContactModal(true);
+                    setMobileMenuOpen(false);
+                  }}
+                  className="mx-4 mt-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-md text-sm font-medium transition"
+                >
+                  Let&apos;s Work Together
+                </button>
+              </nav>
+            </div>
+          )}
         </div>
       </header>
 
